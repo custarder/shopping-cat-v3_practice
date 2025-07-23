@@ -5,7 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -k -n VITE,API -c blue,green \"npm run vite\" \"npm run api\"",
+    "vite": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "api": "json-server --watch src/data/cats.json --port 3002"
@@ -19,8 +20,8 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "alpinejs": "^3.14.9",
     "axios": "^1.10.0",
+    "concurrently": "^9.2.0",
     "json-server": "^1.0.0-beta.3",
     "vue": "^3.5.17"
   }
 }
-
